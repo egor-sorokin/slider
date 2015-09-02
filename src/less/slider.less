@@ -1,0 +1,123 @@
+.slider {
+  margin: 100px 0 0 0;
+  padding-bottom: 200px;
+
+  &__list {
+    list-style: none;
+
+    overflow: hidden;
+
+    position: relative;
+
+    width: 985px;
+    height: 300px;
+
+    margin: auto;
+    padding: 50px 0;
+
+    background: #3c3f41;
+  }
+  &__item {
+    @item-width: 300px;
+
+    overflow: hidden;
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    margin: -1px;
+
+    border: 1px solid #3c3f41;
+    background: #f0ffff;
+
+    opacity: 0;
+
+    transition: border 2s ease;
+
+    z-index: 0;
+
+    cursor: pointer;
+
+    &:hover {
+      border-color: #a0a0a0;
+    }
+    &--left-outside,
+    &--right-outside {
+      opacity: 0.5;
+
+      z-index: 0;
+    }
+    &--left-outside {
+      left: -@item-width;
+    }
+    &--right-outside {
+      left: 100%;
+    }
+    &--left,
+    &--center,
+    &--right,
+    &--left-outside,
+    &--right-outside {
+      transition: left 0.3s ease, opacity 0.3s ease, border 0.1s ease;
+    }
+    &--left,
+    &--center,
+    &--right {
+      opacity: 1;
+
+      z-index: 1;
+    }
+    &--left {
+      left: 30px;
+    }
+    &--center {
+      left: (30px + 12px + @item-width);
+    }
+    &--right {
+      left: (30px + 12px + 12px + (@item-width * 2));
+    }
+  }
+  &__picture {
+    width: 300px;
+    height: 300px;
+  }
+  &__btn {
+    height: 300px;
+    width: 30px;
+
+    opacity: 0.5;
+
+    z-index: 1;
+
+    &--left {
+      background: url("../img/icons/chevron-left.svg") #595959 no-repeat 50%;
+
+      border: 1px solid #424546;
+
+      position: absolute;
+
+      top: 250px;
+      left: 40px;
+    }
+
+    &--right {
+      background: url("../img/icons/chevron-right.svg") #595959 no-repeat 50%;
+
+      border: 1px solid #383b3c;
+
+      position: absolute;
+
+      top: 250px;
+      right: 40px;
+    }
+
+    &:hover {
+      background-color: #a0a0a0;
+      transition: background-color 0.8s;
+
+      border: 1px solid #525556;
+    }
+  }
+}
